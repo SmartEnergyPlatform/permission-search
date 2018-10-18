@@ -1,0 +1,94 @@
+{
+	"ServerPort":		          "8080",
+	"LogLevel":		              "CALL",
+
+	"PermTopic": "permissions",
+	"UserTopic": "user",
+
+	"AmqpUrl": "amqp://user:pw@rabbitmq:5672/",
+	"AmqpConsumerName": "permsearch",
+	"AmqpReconnectTimeout": 10,
+
+	"ForceUser": "true",
+	"ForceAuth": "true",
+
+    "ElasticUrl": "http://elastic:9200",
+    "ElasticRetry": 3,
+
+    "ConsumptionPause": "false",
+
+	"Resources": {
+		"processmodel":{
+            "Features":[
+                {"Name": "name", "Path": "$.processmodel.process.definitions.process._id+"},
+                {"Name": "date", "Path": "$.processmodel.date+"},
+                {"Name": "svg", "Path": "$.processmodel.svg+"},
+                {"Name": "publish", "Path": "$.processmodel.publish+"},
+                {"Name": "parent_id", "Path": "$.processmodel.parent_id+"},
+                {"Name": "description", "Path": "$.processmodel.description+"}
+            ],
+            "InitialGroupRights":{"admin": "rwxa"}
+        },
+		"deviceinstance":{
+            "Features":[
+                {"Name": "name", "Path": "$.device_instance.name+"},
+                {"Name": "tag", "Path": "$.device_instance.tags+"},
+                {"Name": "usertag", "Path": "$.device_instance.user_tags+"},
+                {"Name": "devicetype", "Path": "$.device_instance.device_type+"},
+                {"Name": "uri", "Path": "$.device_instance.uri+"},
+                {"Name": "img", "Path": "$.device_instance.img+"}
+            ],
+            "InitialGroupRights":{"admin": "rwxa"}
+        },
+		"devicetype":{
+            "Features":[
+                {"Name": "name", "Path": "$.device_type.name+"},
+                {"Name": "description", "Path": "$.device_type.description+"},
+                {"Name": "maintenance", "Path": "$.device_type.maintenance+"},
+                {"Name": "service", "Path": "$.device_type.services[*].id+"},
+                {"Name": "vendor", "Path": "$.device_type.vendor.name+"},
+                {"Name": "device_class", "Path": "$.device_type.device_class.name+"},
+                {"Name": "img", "Path": "$.device_type.img+"}
+            ],
+            "InitialGroupRights":{"admin": "rwxa", "user": "rx"}
+        },
+        "gateway": {
+            "Features": [
+                {"Name": "name", "Path": "$.name+"},
+                {"Name": "devices", "Path": "$.devices+"}
+            ],
+            "InitialGroupRights":{"admin": "rwxa"}
+        }
+	},
+    "InitialGroupRightsUpdate": "false",
+
+    "ElasticMapping": {
+        "devicetype": {
+            "description":  {"type": "text", "copy_to": "feature_search"},
+            "maintenance":  {"type": "keyword"},
+            "name":         {"type": "keyword", "copy_to": "feature_search"},
+            "service":      {"type": "keyword"},
+            "img":          {"type": "keyword"},
+            "vendor":       {"type": "keyword", "copy_to": "feature_search"}
+        },
+        "processmodel":{
+            "name":         {"type": "keyword", "copy_to": "feature_search"},
+            "date":         {"type": "date"},
+            "publish":      {"type": "boolean"},
+            "parent_id":    {"type": "keyword"}
+        },
+        "deviceinstance":{
+            "name":         {"type": "keyword", "copy_to": "feature_search"},
+            "description":  {"type": "text",    "copy_to": "feature_search"},
+            "usertag":      {"type": "keyword", "copy_to": "feature_search"},
+            "tag":          {"type": "keyword", "copy_to": "feature_search"},
+            "devicetype":   {"type": "keyword"},
+            "uri":          {"type": "keyword"},
+            "img":          {"type": "keyword"}
+        },
+        "gateway":{
+            "name":         {"type": "keyword", "copy_to": "feature_search"},
+            "devices":      {"type": "keyword"}
+        }
+    }
+}
