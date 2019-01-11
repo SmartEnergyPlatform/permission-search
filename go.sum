@@ -2,8 +2,8 @@ github.com/JumboInteractiveLimited/jsonpath v0.0.0-20180321012328-6fcdcc9066b5 h
 github.com/JumboInteractiveLimited/jsonpath v0.0.0-20180321012328-6fcdcc9066b5/go.mod h1:N8q4xp4huIu1v/T0shrb+g3kR91brTr7FSgayRJ6Kkg=
 github.com/SmartEnergyPlatform/amqp-wrapper-lib v0.0.0-20181018071408-32e07d9d89bb h1:wkigEsq8SRUzIbsA5gAWhZ7a1CECn1vnhpElcoA6evE=
 github.com/SmartEnergyPlatform/amqp-wrapper-lib v0.0.0-20181018071408-32e07d9d89bb/go.mod h1:X1U6gbRInWfBsFKgb/owoLNZp2NSx6vLnUPbw6bjEN4=
-github.com/SmartEnergyPlatform/jwt-http-router v0.0.0-20181018071703-2fca7308e21f h1:PaAqaTlimX7SG6jFeQRyVbWBCxSfh0tOHjQ78YGDkXg=
-github.com/SmartEnergyPlatform/jwt-http-router v0.0.0-20181018071703-2fca7308e21f/go.mod h1:EJR6/QRwaUKPdlXd++sqyoBsc80Ety6Yew1epvbGFs4=
+github.com/SmartEnergyPlatform/jwt-http-router v0.0.0-20190111100649-8c1c5434af3c h1:VurHK0XwOGMC8p5pVB59XWaq/ZfpI+ZwZy9ndMwn0Iw=
+github.com/SmartEnergyPlatform/jwt-http-router v0.0.0-20190111100649-8c1c5434af3c/go.mod h1:64s8L4LwgDDohBNVwdE0tQGbfYldd+D0+4Jn6qfDlUg=
 github.com/SmartEnergyPlatform/util v0.0.0-20181018070938-b26ca656886c h1:W4cI5yY8t8yL2eby9p27KmVgUzJ8x/nOJVFcchA0srs=
 github.com/SmartEnergyPlatform/util v0.0.0-20181018070938-b26ca656886c/go.mod h1:SQukrczVRI7mSlfxYiIjtKjuIpNc7GPXhZISX0iLa3M=
 github.com/dgrijalva/jwt-go v3.1.0+incompatible h1:FFziAwDQQ2dz1XClWMkwvukur3evtZx7x/wMHKM1i20=
